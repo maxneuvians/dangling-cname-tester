@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dangling CNAME tester</title>
+
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3Ctext%20x='0'%20y='14'%3E🍁%3C/text%3E%3C/svg%3E"
+        type="image/svg+xml" />
+
+    <!-- Icons Font Awesome (to access icons, import Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        crossorigin="anonymous">
+
+    <!-- GC Design System -->
+    <link rel="stylesheet"
+        href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@0.22.1/dist/gcds/gcds.css">
+    <script type="module"
+        src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@0.22.1/dist/gcds/gcds.esm.js"></script>
+    <script nomodule
+        src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@0.22.1/dist/gcds/gcds.js"></script>
+    <link rel="stylesheet"
+        href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-utility@1.2.0/dist/gcds-utility.min.css">
+</head>
+
+<body>
+    <gcds-header lang-href="/dangling-cname-tester/fr" skip-to-href="#mc">
+    </gcds-header>
+    <div class="content-wrapper">
+        <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
+            <h1 class="mb-200 mt-400">Dangling CNAME tester</h1>
+            <gcds-container border padding="400">
+                <gcds-input input-id="dns-name" label="DNS name" name="dns-name"
+                    placeholder="ex. canada.ca"></gcds-input>
+                <gcds-fieldset fieldset-id="fieldset">
+                    <gcds-button button-id="resolve-btn">
+                        Check DNS name
+                    </gcds-button>
+                </gcds-fieldset>
+            </gcds-container>
+        </main>
+    </div>
+    <gcds-footer contextual-heading="Contextual navigation" contextual-links=''>
+    </gcds-footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous">
+        </script>
+    <script type="text/javascript" language="javascript">
+        $("#resolve-btn").click(() => {
+            console.log('clicked');
+        });
+    </script>
+</body>
+
+</html>

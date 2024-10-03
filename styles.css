@@ -1,0 +1,65 @@
+#cname_list {
+    margin: 30px 0 20px 0px;
+    list-style: disc;
+    border: red 2px dashed;
+    list-style-position: inside;
+    padding: 20px;
+}
+
+#debug {
+    display: none;
+    font-size: 14px;
+    border: 1px solid #000;
+    padding: 10px;
+}
+
+i {
+    padding-right: 10px;
+}
+
+#issues {
+    display: none;
+    border-color: red;
+    border-width: 2px;
+    border-style: solid;
+    padding: 25px;
+    margin: 20px 0;
+}
+
+#no_issues {
+    display: none;
+    border-color: green;
+    border-width: 2px;
+    border-style: solid;
+    padding: 25px;
+    margin: 20px 0;
+    background-color: rgb(212, 255, 212);
+    color: green;
+}
+
+#partial_issues {
+    display: none;
+    border-color: orange;
+    border-width: 2px;
+    border-style: solid;
+    padding: 25px;
+    margin: 20px 0;
+    background-color: rgb(255, 255, 212);
+    color: orange;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+}

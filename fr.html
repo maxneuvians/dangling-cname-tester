@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dangling CNAME tester</title>
+    <title>Testeur de CNAME en suspens</title>
 
     <link rel="icon"
         href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3Ctext%20x='0'%20y='14'%3E🍁%3C/text%3E%3C/svg%3E"
@@ -28,49 +28,49 @@
 </head>
 
 <body>
-    <gcds-header lang-href="/dangling-cname-tester/fr" skip-to-href="#mc">
+    <gcds-header lang-href="/dangling-cname-tester/" skip-to-href="#mc">
     </gcds-header>
     <div class="content-wrapper">
         <main id="mc" class="container-xl mx-auto xl:px-0 sm:px-500 px-300 general-layout">
-            <h1 class="mb-200 mt-400">Dangling CNAME tester</h1>
+            <h1 class="mb-200 mt-400">Testeur de CNAME en suspens</h1>
             <gcds-container border padding="400">
-                <gcds-input input-id="dns-name" label="DNS name" name="dns-name" placeholder="ex. canada.ca"
+                <gcds-input input-id="dns-name" label="Nom DNS" name="dns-name" placeholder="ex. canada.ca"
                     id="dns-name-input"></gcds-input>
                 <gcds-fieldset fieldset-id="fieldset">
                     <gcds-button id="resolve-btn">
-                        Check DNS name
+                        Vérifier le nom DNS
                     </gcds-button>
                 </gcds-fieldset>
             </gcds-container>
             <div id="no_issues">
                 <i class="fa-regular fa-circle-check fa-2xl"></i>
-                We have determined that there are no dangling CNAMEs associated with this DNS entry.
+                Nous avons déterminé qu'il n'y a pas de CNAME en suspens associés à cette entrée DNS.
             </div>
             <div id="issues">
                 <span style="color: red;">
                     <i class="fa-solid fa-circle-xmark fa-2xl"></i>
-                    We have found the following dangling CNAMEs associated with this DNS entry:
+                    Nous avons trouvé les CNAME en suspens suivants associés à cette entrée DNS :
                 </span>
                 <ul id="cname_list"></ul>
-                <h4 class="mb-400 mt-400">What is a dangling CNAME?</h4>
+                <h4 class="mb-400 mt-400">Qu'est-ce qu'un CNAME en suspens ?</h4>
                 <gcds-text character-limit="false" display="inline-block">
-                    A dangling CNAME is a CNAME record that points to a resource on the internet that no longer exists.
-                    Typical resources are virtual machines,
-                    storage buckets, API gateways, serverless cloud resources, and other cloud services. An attacker may
-                    recreate the resource in their own environment
-                    and use it to impersonate the original service. This is a common attack vector for phishing and
-                    other malicious activities.
+                    Un CNAME en suspens est un enregistrement CNAME qui pointe vers une ressource sur Internet qui n'existe plus.
+                    Les ressources typiques sont les machines virtuelles,
+                    les seaux de stockage, les passerelles API, les ressources cloud sans serveur et autres services cloud. Un attaquant peut
+                    recréer la ressource dans son propre environnement
+                    et l'utiliser pour usurper le service original. C'est un vecteur d'attaque courant pour le phishing et
+                    d'autres activités malveillantes.
                 </gcds-text>
                 <gcds-text character-limit="false" display="inline-block">
-                    To learn more about this issue, please visit the <a
+                    Pour en savoir plus sur ce problème, veuillez visiter la <a
                         href="https://learn.microsoft.com/en-us/azure/security/fundamentals/subdomain-takeover"
-                        target="_blank">Azure information page on this issue</a>.
+                        target="_blank">page d'information Azure sur ce problème</a>.
                 </gcds-text>
             </div>
             <pre id="debug"></pre>
         </main>
     </div>
-    <gcds-footer contextual-heading="Contextual navigation" contextual-links=''>
+    <gcds-footer contextual-heading="Navigation contextuelle" contextual-links=''>
     </gcds-footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
         integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous">
@@ -95,7 +95,7 @@
             const dnsName = $("#dns-name-input").val();
 
             if ($.trim(dnsName) == "") {
-                $("#dns-name-input").attr("error-message", "Please enter a DNS name");
+                $("#dns-name-input").attr("error-message", "Veuillez entrer un nom DNS");
                 return;
             }
 
@@ -108,7 +108,7 @@
                 success: function (data) {
 
                     $("#debug").show();
-                    $("#debug").text("Server response:\n\n" + JSON.stringify(data, null, 2));
+                    $("#debug").text("Réponse du serveur:\n\n" + JSON.stringify(data, null, 2));
 
                     const status = data.Status;
                     const answer = data.Answer;
@@ -136,7 +136,7 @@
                     console.log(xhr);
                     console.log(status);
                     console.log(error);
-                    $("#dns-name-input").attr("error-message", "Error occurred while checking DNS name");
+                    $("#dns-name-input").attr("error-message", "Une erreur s'est produite lors de la vérification du nom DNS");
                 }
             });
 
